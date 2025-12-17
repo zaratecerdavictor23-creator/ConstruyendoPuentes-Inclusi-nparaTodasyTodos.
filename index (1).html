@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>PAEC - Construyendo Puentes: Inclusión para Todas y Todos </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #eef2f5;
+    color: #2c3e50;
+    line-height: 1.7;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomSoft {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+nav {
+    background: #003750;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: slideUp 0.8s ease forwards;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding: 0.3rem 0.6rem;
+    transition: 0.25s ease;
+}
+
+nav a:hover {
+    color: #29b9e7;
+    transform: translateY(-3px);
+}
+
+header {
+    background: linear-gradient(135deg, #006fa3, #00466a);
+    padding: 4rem 1.5rem;
+    text-align: center;
+    color: white;
+    border-bottom: 8px solid #29b9e7;
+    animation: fadeIn 1s ease-in-out;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+    animation: slideUp 0.8s ease;
+}
+
+header p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+header img {
+    margin-top: 2rem;
+    width: 55%;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    transition: 0.35s ease;
+    animation: zoomSoft 0.8s ease forwards;
+}
+
+header img:hover {
+    transform: scale(1.05);
+}
+
+section {
+    background: white;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2.7rem;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.07);
+    animation: slideUp 0.8s ease;
+}
+
+section h2 {
+    font-size: 2.3rem;
+    color: #006fa3;
+    padding-bottom: 0.4rem;
+    border-bottom: 3px solid #29b9e7;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 0.8s ease;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    color: #003750;
+    margin-bottom: 0.7rem;
+}
+
+section li {
+    margin-bottom: 0.8rem;
+    transition: 0.3s ease;
+}
+
+section li:hover {
+    transform: translateX(5px);
+    color: #006fa3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1rem;
+    margin-top: 1.2rem;
+    animation: fadeIn 1s ease;
+}
+
+th {
+    background: #29b9e7;
+    color: #fff;
+    padding: 1rem;
+    text-align: left;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 0.9rem;
+    transition: background 0.3s ease;
+}
+
+td:hover {
+    background: #e7f8fd;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+iframe {
+    width: 100%;
+    max-width: 350px;
+    height: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    animation: zoomSoft 0.8s ease;
+    transition: 0.3s ease;
+}
+
+iframe:hover {
+    transform: scale(1.05);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    animation: fadeIn 0.9s ease;
+}
+
+label {
+    font-weight: bold;
+    color: #003750;
+}
+
+input,
+select,
+textarea {
+    padding: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    font-size: 1rem;
+    background: #f9fbfc;
+    transition: 0.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #29b9e7;
+    box-shadow: 0 0 6px rgba(41,185,231,0.4);
+    transform: scale(1.02);
+    outline: none;
+}
+
+.btn {
+    background: #29b9e7;
+    border: none;
+    padding: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    font-size: 1.1rem;
+    transition: 0.25s ease;
+    animation: slideUp 1s ease;
+}
+
+.btn:hover {
+    background: #1a9ec7;
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 800px) {
+    header h1 {
+        font-size: 2.3rem;
+    }
+
+    header img {
+        width: 85%;
+    }
+
+    section {
+        padding: 2rem;
+    }
+
+    nav a {
+        margin: 0 0.5rem;
+        font-size: 1rem;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f2f5f9;
+    color: #2c3e50;
+    line-height: 1.7;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(35px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomImage {
+    0% { transform: scale(0.92); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes hoverPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.03); }
+    100% { transform: scale(1); }
+}
+
+nav {
+    background: #004a6d;
+    padding: 1rem;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+nav a {
+    color: #fff;
+    margin: 0 1rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: .4rem .6rem;
+    transition: 0.25s;
+}
+
+nav a:hover {
+    color: #2dcaf0;
+    transform: translateY(-3px);
+}
+
+header {
+    background: linear-gradient(135deg, #0378a6, #004a6d);
+    text-align: center;
+    padding: 4rem 1.5rem;
+    color: white;
+    animation: fadeIn 1s ease;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: slideUp 1s ease;
+}
+
+header p {
+    max-width: 750px;
+    margin: auto;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+header img {
+    margin-top: 2rem;
+    width: 35%;
+    border-radius: 15px;
+    box-shadow: 0 6px 22px rgba(0,0,0,0.25);
+    animation: zoomImage .9s ease forwards;
+    transition: .35s ease;
+}
+
+header img:hover {
+    transform: scale(1.06) rotate(1deg);
+}
+
+section {
+    background: white;
+    max-width: 900px;
+    margin: 3rem auto;
+    padding: 2.5rem;
+    border-radius: 14px;
+    box-shadow: 0 5px 22px rgba(0,0,0,0.1);
+    animation: slideUp .9s ease;
+}
+
+section h2 {
+    font-size: 2.3rem;
+    border-left: 7px solid #2dcaf0;
+    padding-left: 1rem;
+    margin-bottom: 1.5rem;
+    color: #004a6d;
+}
+
+section h3 {
+    font-size: 1.45rem;
+    color: #0378a6;
+    margin-top: 1.5rem;
+}
+
+section li {
+    margin-bottom: .8rem;
+    transition: .3s;
+}
+
+section li:hover {
+    transform: translateX(6px);
+    color: #0378a6;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    animation: fadeIn 1s ease;
+}
+
+th {
+    background: #2dcaf0;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: .9rem;
+    transition: .25s ease;
+}
+
+td:hover {
+    background: #e6faff;
+}
+
+.video-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
+}
+
+iframe {
+    width: 100%;
+    max-width: 360px;
+    height: 220px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    animation: zoomImage .9s ease;
+    transition: .3s;
+}
+
+iframe:hover {
+    transform: scale(1.05);
+}
+
+section img {
+    width: 100%;
+    border-radius: 12px;
+    margin: 1.5rem 0;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+    animation: zoomImage .8s ease;
+    transition: .3s ease;
+}
+
+section img:hover {
+    transform: scale(1.06);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fadeIn .9s ease;
+}
+
+label {
+    font-weight: bold;
+    color: #004a6d;
+}
+
+input, select, textarea {
+    padding: .9rem;
+    border-radius: 6px;
+    border: 1px solid #bbb;
+    background: #f9fbfc;
+    font-size: 1rem;
+    transition: .2s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #2dcaf0;
+    box-shadow: 0 0 7px rgba(45,202,240,.45);
+    transform: scale(1.02);
+}
+
+.btn {
+    background: #2dcaf0;
+    border: none;
+    padding: 1rem;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: .25s ease;
+    animation: slideUp 1s ease;
+}
+
+.btn:hover {
+    background: #1fb1d3;
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 800px) {
+    header h1 { font-size: 2.3rem; }
+    header img { width: 85%; }
+    section { padding: 2rem; }
+}
+        footer {
+        background-color: #4a90e2;
+        color: white;
+        text-align: center;
+        padding: 15px;
+        margin-top: 30px;
+    }
+
+    footer a {
+        color: #ffeb3b;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    footer a:hover {
+        text-decoration: underline;
+    }
+    </style>
+    
+</head>
+<body>
+    <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#que-es">¿Qué es el PAEC?</a>
+        <a href="#componentes">Componentes</a>
+        <a href="#implementacion">Implementación</a>
+        <a href="#propuestas">Propuestas</a>
+        <a href="#formulario">Tu opinión</a>
+    </nav>
+    <header id="inicio">
+        <h1>Construyendo Puentes: Inclusión para Todas y Todos</h1>
+        <article>
+        <p>
+        <i>El Programa Aula, Escuela y Comunidad (PAEC) es una estrategia educativa fundamental
+        en la transformación que impulsa la Nueva Escuela Mexicana (NEM) dentro de la Educación
+        Media Superior (EMS) en México.</i>
+        </p>
+        <p>
+        <i>¿Nuestro objetivo? Fortalecer el vínculo entre la escuela y la comunidad, promoviendo un
+        aprendizaje significativo, contextualizado y socialmente relevante. A través del PAEC, las y los
+        estudiantes se convierten en protagonistas activos, proponiendo soluciones a problemas reales
+        mediante el desarrollo de Proyectos Escolares Comunitarios (PEC).</i>
+        </p>
+        <p>
+        <i>Te invitamos a explorar cómo este programa está redefiniendo la educación y fomentando una
+        cultura de participación, pensamiento crítico y bienestar
+        comunitario.</i>
+        </p>
+        </article>
+        <img src="imgPaec1.png" alt="ilustración sobre el PAEC" width="600" style="border-radius:10px; display:block; margin:auto;">
+
+    </header>
+
+    <section id="que-es">
+        <h2>¿Qué es el PAEC?</h2>
+        <h3>Definición y Propósito Central</h3>
+        <p>
+        El Programa Aula, Escuela y Comunidad (PAEC) es un eje de formación dentro del
+        Currículum Ampliado del Marco Curricular Común de la Educación Media Superior (MCCEMS).
+        </p>
+        <p>Su relevancia radica en:</p>
+        <ul>
+            <li><strong>Vínculo Escuela-Comunidad:</strong> 
+                Convierte al plantel en una Escuela Abierta y Orientadora, conectando el aprendizaje del aula con las necesidades del entorno social.
+            </li>
+            <li><strong>Protagonismo Estudiantil:</strong> 
+                Sitúa al estudiantado como el protagonista en el desarrollo de Proyectos Escolares Comunitarios (PEC) con alto sentido social, socioemocional y educativo.
+            </li>
+        </ul>
+        <h3>Fundamento</h3>
+            <p>
+            El PAEC se fundamenta en los principios de la Nueva Escuela
+            Mexicana, buscando una educación
+            de excelencia que promueva el máximo logro de aprendizaje, el
+            pensamiento crítico y el fortalecimiento
+            de los lazos entre escuela y comunidad (Artículos 3° Constitucional y 11 de la Ley General de Educación).
+            </p>
+            <p>Su meta es:</p>
+            <ul>
+                <li>
+                    Incidir en la cultura educativa a través de la corresponsabilidad.
+                </li>
+                <li>
+                    Impulsar transformaciones sociales dentro de la escuela y en la comunidad.
+                </li>
+            </ul>
+            <a href="https://www.sep.gob.mx/work/models/sep1/Resource/3f9a47cc-efd9-4724-83e4-0bb4884af388/ley_general_educacion.pdf" target="_blank">
+                <img src="https://lh3.googleusercontent.com/proxy/5tfpKTz-J9kFsuq4W3_o-7tE85hDtpSus7gLFYW4oH6cryOnyeoc1L8h31mMMZJ6j4wS92hOxv5zNFPkgfi4_ghYjipf-DU8UikcyzYnMjubXmPpDiXruGe64SiMeoheTfJbkS8J4txSCpHP_YPjaP0" alt="Ley General de Educación" width="500">
+            </a>
+    </section>
+    <section id="componentes">
+        <h2>Componentes y Estructura</h2>
+        <h3>Componentes Fundamentales</h3>
+        <ol>
+            <li><strong>Currículum Fundamental y Ampliado:</strong>
+                Permite el abordaje transversal de las Progresiones de Aprendizaje de las Unidades de Aprendizaje Curricular (UAC) y los recursos sociocognitivos.
+            </li>
+            <li> <strong>Proyecto Escolar Comunitario (PEC):</strong> 
+                Es el producto principal del trabajo articulado entre el aula, la escuela y la comunidad. El PEC aborda una problemática o necesidad del entorno.
+            </li>
+            <li><strong>Clima Organizacional Propicio:</strong> 
+                Promueve Comunidades de Aprendizaje, trabajo colaborativo y participación inclusiva.
+            </li>
+        </ol>
+        <h3>Actores Clave en su Estructura</h3>
+        <ul>
+            <li><strong>Aula:</strong> 
+                Docentes y estudiantes mediante las UAC y sus progresiones.
+            </li>
+            <li><strong>Escuela:</strong>
+                Personal directivo, administrativo y el Comité de Plantel para el PAEC.
+            </li>
+            <li><strong>Comunidad:</strong>
+                Madres, padres, autoridades locales y personas interesadas.
+            </li>
+        </ul>
+    </section>
+    <section id="implementacion">
+        <h2>Implementación del PAEC</h2>
+        <p>
+        La implementación del PAEC contempla cuatro fases esenciales que requieren el trabajo colaborativo
+        de todos los actores del aula, la escuela y la comunidad. Estas fases se desarrollan de manera continua
+        durante el ciclo escolar.
+        </p>
+        <table>
+            <tr>
+                <th>Fase</th>
+                <th>Descripción</th>
+            </tr>
+            <tr>
+                <td><strong>Elaboración del Diagnóstico Colectivo</strong></td>
+                <td>Identificación de las problemáticas o necesidades de la comunidad y el plantel con participación de todos los actores.</td>
+            </tr>
+            <tr>
+                <td><strong>Definición del Proyecto Escolar Comunitario (PEC)</strong></td>
+                <td>Selección del tema y diseño del proyecto articulado con las Progresiones de Aprendizaje del currículum.</td>
+            </tr>
+            <tr>
+                <td><strong>Ejecución del Proyecto Escolar Comunitario</strong></td>
+                <td>Puesta en práctica de las actividades planificadas, aplicando los conocimientos revisados en el aula.</td>
+            </tr>
+            <tr>
+                <td><strong>Seguimiento y Retroalimentación del PEC</strong></td> <td>Evaluación de los avances y resultados para mejorar las estrategias y cumplir los objetivos.</td>
+            </tr>
+        </table>
+        <section id="videos-adicionales">
+        <h2>Videos Adicionales</h2>
+        <p>Aquí puedes ver más videos relacionados con el PAEC:</p>
+        <div class="video-container">
+            <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/rgOni6u1em8"
+            title="Video del PAEC" frameborder="0" allowfullscreen></iframe> 
+            <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/5lJ2Vkkmp48"
+            title="Segundo Video del PAEC" frameborder="0" allowfullscreen></iframe> 
+            <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/pgRtghWKi_I" 
+            title="Tercer Video del PAEC" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315"
+            src="https://www.youtube.com/embed/tBBqm62FGG8" 
+            title="Cuarto Video del PAEC" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </section>
+    <section id="propuestas">
+        <h2>Propuestas para Mejorar la Inclusión</h2>
+    <div class="propuesta">
+        <h3>1. Impacto y Resultados del PAEC</h3>
+        <p>Presenta estadísticas clave, mejoras en el rendimiento académico y testimonios de éxito. Comparte estudios de caso y ejemplos concretos de instituciones que han implementado el PAEC con éxito. Incluye gráficos, infografías y datos visuales para hacer más comprensible el impacto.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>2. Innovaciones Pedagógicas bajo el PAEC</h3>
+        <p>Expón las metodologías innovadoras que están revolucionando las aulas, como el aprendizaje basado en proyectos (ABP), la gamificación, y la educación híbrida. Describe cómo el PAEC fomenta el uso de la tecnología en la enseñanza y cómo los docentes están adaptando sus prácticas pedagógicas.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>3. Recursos y Herramientas Avanzadas</h3>
+        <p>Proporciona acceso a plataformas educativas, aplicaciones y recursos digitales que los educadores pueden usar para mejorar su práctica docente. Incluye una selección de software educativo, plataformas de formación en línea y materiales interactivos. Ofrece guías o tutoriales sobre cómo usar estas herramientas en el aula.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>4. Espacio para Profesionales: Comunidad y Redes de Aprendizaje</h3>
+        <p>Crea un espacio interactivo donde los docentes puedan compartir recursos, estrategias de enseñanza y mejores prácticas. Invita a participar en redes de aprendizaje colaborativo tanto locales como internacionales, donde los educadores puedan intercambiar experiencias. Ofrece información sobre eventos, conferencias, y webinars relacionados con el PAEC.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>5. Desafíos y Oportunidades del PAEC</h3>
+        <p>Habla de los retos más comunes que enfrentan las instituciones al implementar el PAEC (por ejemplo, falta de recursos, resistencia al cambio, dificultades tecnológicas). Proporciona soluciones y estrategias efectivas para superar esos desafíos. Muestra cómo el PAEC ofrece oportunidades únicas para mejorar la calidad educativa y la equidad en las aulas.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>6. Actualizaciones y Noticias del PAEC</h3>
+        <p>Publica noticias sobre nuevas iniciativas, políticas educativas, y proyectos en curso dentro del PAEC. Incluye artículos, informes y estudios que muestren los avances y cambios en la implementación del plan. Añade un boletín de noticias o un espacio para que los usuarios se suscriban a las actualizaciones del PAEC.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>7. Proyectos y Colaboraciones en Marcha</h3>
+        <p>Destaca los proyectos educativos que están siendo ejecutados bajo el marco del PAEC, como programas de formación docente, tecnologías educativas y proyectos inclusivos. Informa sobre las colaboraciones internacionales y alianzas con organizaciones que apoyan la implementación del PAEC. Incluye fotos, videos y testimonios sobre cómo estos proyectos están impactando a estudiantes y comunidades.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>8. Guías para Implementar el PAEC en tu Institución</h3>
+        <p>Proporciona una guía paso a paso sobre cómo poner en marcha el PAEC, desde la planificación hasta la ejecución. Incluye recursos como plantillas, checklists y ejemplos de buenas prácticas. Ofrece asesoría o enlaces a programas de formación continua para docentes que deseen profundizar en la implementación del PAEC.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>9. Testimonios y Reseñas</h3>
+        <p>Presenta testimonios de docentes, directores y estudiantes que han experimentado el impacto positivo del PAEC. Ofrece casos de éxito de instituciones educativas que han implementado el PAEC y cómo ha transformado su entorno académico. Incluye citas y videos cortos para hacer más personal y accesible la experiencia.</p>
+    </div>
+
+    <div class="propuesta">
+        <h3>10. Llamadas a la Acción Interactivas</h3>
+        <p>Proporciona formularios de inscripción para programas de formación o actividades del PAEC. Ofrece una sección de voluntariado o colaboración, invitando a los usuarios a contribuir con proyectos educativos. Agrega enlaces para descargar recursos educativos, como guías, e-books o material de apoyo relacionado con el PAEC.</p>
+    </div>
+    </section>
+    <section id="formulario">  
+        <h2>Tu Opinión Cuenta</h2>  
+        <p>Comparte tus ideas sobre cómo mejorar la inclusión en la escuela.</p>  
+        <form>  
+            <label for="nombre">Nombre *</label>  
+            <input id="nombre" name="nombre" type="text" inputmode="text" autocomplete="name" required aria-required="true" placeholder="Tu nombre">  
+            <label for="rol">Soy *</label>  
+            <select id="rol" name="rol" required aria-required="true">  
+                <option value="">Selecciona una opción</option>  
+                <option value="estudiante">Estudiante</option>  
+                <option value="docente">Docente</option>  
+                <option value="padre">Padre/Madre</option>  
+                <option value="otro">Otro</option>  
+            </select>  
+            <label for="mensaje">Tu mensaje *</label>  
+            <textarea id="mensaje" name="mensaje" rows="4" required aria-required="true" placeholder="Escribe aquí..."></textarea>  
+            <button type="submit" class="btn">Enviar</button>  
+        </form>  
+    </section>
+    
+    <footer>
+        <p>Bautista Bautista Cesar Ivan<br>
+            Zarate Cerda Victor Adrian</p>
+        <a href="https://www.gob.mx/cms/uploads/attachment/file/1023485/2025_MCC_PAEC_BN.pdf" target="_blank">
+        Documento SEP (PDF)
+        </a>
+    </footer>
+
+</body>
+</html>
